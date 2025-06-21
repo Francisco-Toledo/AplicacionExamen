@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menu_electronics"
+        android:title="Electrónica" />
+    <item android:id="@+id/menu_jewelery"
+        android:title="Joyería" />
+    <item android:id="@+id/menu_mens_clothing"
+        android:title="Hombre" />
+    <item android:id="@+id/menu_womens_clothing"
+        android:title="Mujer" />
+</menu>
