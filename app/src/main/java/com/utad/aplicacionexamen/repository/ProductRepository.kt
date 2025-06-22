@@ -1,10 +1,12 @@
-package com.utad.aplicacionexamen.Repository.viewmodel
+package com.utad.aplicacionexamen.ViewModel
 
 import com.utad.aplicacionexamen.Model.Product
-import com.utad.aplicacionexamen.Model.ProductApiService
-import com.utad.aplicacionexamen.Model.ProductApiService
+import com.utad.aplicacionexamen.network.ProductApiService
 
-class ProductRepository(private val api: ProductApiService) {
+class ProductRepository(
+    private val api: ProductApiService
+) {
+
     suspend fun getProductsByCategory(category: String): List<Product> =
         api.getProductsByCategory(category)
 
