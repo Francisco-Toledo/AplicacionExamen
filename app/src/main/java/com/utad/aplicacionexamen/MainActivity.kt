@@ -2,6 +2,7 @@ package com.utad.aplicacionexamen.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.activity.viewModels
@@ -30,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setSupportActionBar(binding.topAppBar)   // ← ¡vinculación clave!
 
         adapter = ProductsAdapter { product ->
             val intent = Intent(this, DetailActivity::class.java)
@@ -43,7 +45,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         // Observadores
-        viewModel.products.observe(this) { adapter.submitList(it) }
+       // viewModel.products.observe(this) { adapter.submitList(it) }
+        viewModel.products.observe(this) { productos ->
+            Log.d("MainActivity", "Productos recibidos: ${productos.size}")
+            adapter.submitList(productos)
+        }
+
 
         // Categoría por defecto
         viewModel.loadProducts("electronics")
@@ -64,7 +71,9 @@ class MainActivity : AppCompatActivity() {
             R.id.menu_womens_clothing -> "women's clothing"
             else -> return super.onOptionsItemSelected(item)
         }
+        Log.d("MainActivity", "Categoría seleccionada: $category")  // <-- Aquí
         viewModel.loadProducts(category)
         return true
+
     }
 }

@@ -15,11 +15,25 @@ class ProductViewModel(
     private val _selectedProduct = MutableLiveData<Product>()
     val selectedProduct: LiveData<Product> = _selectedProduct
 
-    fun loadProducts(category: String) = viewModelScope.launch {
-        _products.value = repository.getProductsByCategory(category)
-    }
+   // fun loadProducts(category: String) = viewModelScope.launch {
+      //  _products.value = repository.getProductsByCategory(category)
+    //}
 
     fun loadProductDetail(id: Int) = viewModelScope.launch {
         _selectedProduct.value = repository.getProductById(id)
     }
+
+    fun loadProducts(category: String) = viewModelScope.launch {
+        try {
+            val productos = repository.getProductsByCategory(category)
+            _products.value = productos
+            // Log para verificar cuántos productos llegan
+            android.util.Log.d("ProductViewModel", "Productos cargados para categoría '$category': ${productos.size}")
+        } catch (e: Exception) {
+            android.util.Log.e("ProductViewModel", "Error cargando productos para categoría '$category'", e)
+            _products.value = emptyList()
+        }
+    }
+
+
 }
