@@ -1,6 +1,6 @@
-package com.utad.aplicacionexamen.ViewModel
+package com.utad.aplicacionexamen.repository
 
-import com.utad.aplicacionexamen.Model.Product
+import com.utad.aplicacionexamen.model.Product
 import com.utad.aplicacionexamen.network.ProductApiService
 
 class ProductRepository(

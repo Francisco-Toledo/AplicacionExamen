@@ -1,4 +1,4 @@
-package com.utad.aplicacionexamen.Model
+package com.utad.aplicacionexamen.model
 
 
 data class Product(

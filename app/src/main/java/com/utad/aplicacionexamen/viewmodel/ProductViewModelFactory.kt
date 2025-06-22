@@ -1,8 +1,8 @@
-package com.utad.aplicacionexamen.ui
+package com.utad.aplicacionexamen.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.utad.aplicacionexamen.data.ProductRepository
+import com.utad.aplicacionexamen.repository.ProductRepository
 
 class ProductViewModelFactory(
     private val repository: ProductRepository

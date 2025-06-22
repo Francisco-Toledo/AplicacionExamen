@@ -1,8 +1,8 @@
-package com.utad.aplicacionexamen.ui
+package com.utad.aplicacionexamen.viewmodel
 
 import androidx.lifecycle.*
-import com.utad.aplicacionexamen.data.ProductRepository
-import com.utad.aplicacionexamen.Model.Product
+import com.utad.aplicacionexamen.model.Product
+import com.utad.aplicacionexamen.repository.ProductRepository
 import kotlinx.coroutines.launch
 
 class ProductViewModel(

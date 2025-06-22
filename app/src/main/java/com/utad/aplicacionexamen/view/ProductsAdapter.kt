@@ -1,13 +1,14 @@
-package com.utad.aplicacionexamen.View
+package com.utad.aplicacionexamen.view
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.utad.aplicacionexamen.Model.Product
+import com.utad.aplicacionexamen.databinding.ItemProductBinding
+import com.utad.aplicacionexamen.model.Product
 
-class ProductsAdapter {
-}class ProductsAdapter(private val onClick: (Product) -> Unit) :
+
+class ProductsAdapter(private val onClick: (Product) -> Unit) :
     RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
 
     private var items = listOf<Product>()

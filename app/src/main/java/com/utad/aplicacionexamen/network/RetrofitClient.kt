@@ -1,13 +1,16 @@
-package com.utad.aplicacionexamen.Network
+package com.utad.aplicacionexamen.network
 
-import com.utad.aplicacionexamen.Model.ProductApiService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
+
+    // Puedes cambiar la URL base fácilmente desde aquí
+    private const val BASE_URL = "https://fakestoreapi.com/"
+
     val api: ProductApiService by lazy {
         Retrofit.Builder()
-            .baseUrl("https://fakestoreapi.com/")
+            .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ProductApiService::class.java)
